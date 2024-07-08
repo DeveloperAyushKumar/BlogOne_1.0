@@ -8,17 +8,19 @@ import { useSelector } from 'react-redux';
 function AllPosts() {
     const [posts, setPosts] = useState([])
     const userId=useSelector((state)=>state.auth.userData.$id)
-    console.log(userId)
+    // console.log(userId)
     useEffect(() => {
+        if(userId)
         appwriteService.getPosts([Query.equal("userId",userId)]).then((posts) => {
             if (posts) {
                 setPosts(posts.documents)
             }
         })
     }, [])
+    const msg="No post to show "
   
     // console.log(posts)
-  return (
+  return (posts.length>0)?(
     <div className='w-full py-8'>
         <Container>
             <div className='flex flex-wrap'>
@@ -30,6 +32,14 @@ function AllPosts() {
             </div>
             </Container>
     </div>
+  ):(
+    <div className='w-full py-8 px-2'>
+    <Container>
+        <div className='flex flex-wrap text-white text-xl font-bold'>
+           {msg}
+        </div>
+        </Container>
+</div>
   )
 }
 
