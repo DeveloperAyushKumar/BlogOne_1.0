@@ -7,6 +7,7 @@ function PostCard({$id, title, featuredImage}) {
   // console.log(title)
   // console.log(featuredImage)
   
+  
     
   return (
     <Link to={`/post/${$id}`}>

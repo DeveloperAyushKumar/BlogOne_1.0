@@ -2,7 +2,9 @@ import React from 'react'
 
 function Logo({width = '100px'}) {
   return (
-    <div>Logo</div>
+    <div 
+    className='box-border text-white font-bold text-2xl'
+    >BlogOne </div>
   )
 }
 
