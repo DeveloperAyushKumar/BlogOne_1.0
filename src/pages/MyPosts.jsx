@@ -5,7 +5,7 @@ import { Query } from 'appwrite';
 import { useSelector } from 'react-redux';
 
 
-function AllPosts() {
+function MyPosts() {
     const [posts, setPosts] = useState([])
     const userId=useSelector((state)=>state.auth.userData.$id)
     // console.log(userId)
@@ -43,4 +43,4 @@ function AllPosts() {
   )
 }
 
-export default AllPosts
+export default MyPosts
